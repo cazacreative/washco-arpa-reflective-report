@@ -210,8 +210,13 @@ p{margin:0}
 .toggle{display:flex;gap:8px;flex-wrap:wrap}
 .toggle button{font-family:var(--display);font-weight:600;font-size:16px;border:2px solid var(--navy);background:transparent;color:var(--navy);border-radius:999px;padding:5px 15px;cursor:pointer}
 .toggle button[aria-pressed="true"]{background:var(--navy);color:var(--white)}
-#bubbles{margin-top:12px;margin-left:calc(50% - 50vw + var(--gut));margin-right:calc(50% - 50vw + var(--gut))}
-#bubbles svg{width:min(100%,1440px,max(380px,calc((100vh - 290px) * var(--ar,1.45))));height:auto;display:block;margin:0 auto}
+.bub-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px);gap:clamp(24px,3vw,48px);align-items:center;margin-top:20px}
+.bub-grid .bub-top{order:2;display:flex;flex-direction:column;align-items:flex-start;gap:22px;margin-top:0}
+.bub-grid .legend{flex-direction:column;gap:10px;max-width:none;font-size:14px;line-height:1.35}
+.bub-grid .legend span{align-items:flex-start}
+.bub-grid .legend i{margin-top:4px}
+#bubbles{margin-top:0}
+#bubbles svg{width:min(100%,1000px,max(360px,calc((100vh - 250px) * var(--ar,1))));height:auto;display:block;margin:0 auto}
 #spent .head h2{max-width:none;font-size:clamp(40px,4.8vw,68px)}
 #bubbles text{font-family:var(--display);pointer-events:none}
 #bubbles .bn{font-weight:600}
@@ -324,6 +329,8 @@ footer b{color:var(--white);font-family:var(--display);font-size:18px}
   .tl li:last-child::after{display:none}
   .tl li::before{top:0}
   footer .wrap{grid-template-columns:1fr}
+  .bub-grid{grid-template-columns:1fr}
+  .bub-grid .bub-top{order:0}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -453,6 +460,7 @@ footer b{color:var(--white);font-family:var(--display);font-size:18px}
 <section class="scene spent" id="spent">
   <div class="wrap">
     <div class="head" data-reveal><div class="eyebrow">Distribution of funding</div><h2>Funding allocation by project</h2></div>
+    <div class="bub-grid">
     <div class="bub-top">
       <div class="legend" id="legend"></div>
       <div class="toggle" role="group" aria-label="Highlight framework">
@@ -462,6 +470,7 @@ footer b{color:var(--white);font-family:var(--display);font-size:18px}
       </div>
     </div>
     <div id="bubbles"></div>
+    </div>
     <p class="src">Source: Washington County ARPA Financial Summary, as of October 2026. $114.80M expended of $116.85M obligated.</p>
   </div>
 </section>
@@ -623,10 +632,11 @@ document.querySelectorAll('[data-count]').forEach(el=>cu.observe(el));
   // cluster layout: bubbles sized by expenditure, pulled toward one centre per colour category, laid out in a wide band
   const ORDER=[C.green,C.slate,C.orange,C.gold,C.blue,C.peri,C.lav], KR=.026;
   const cluster=sub=>{ const ns=sub.map(d=>({data:d,r:Math.sqrt(d.ex)*KR,c:AREA_COLOR[d.area]})), gs=ORDER.filter(c=>ns.some(n=>n.c===c));
-    const gr=c=>Math.sqrt(d3.sum(ns.filter(n=>n.c===c),n=>n.r*n.r))*1.12, gx={}; let x=0;
-    gs.forEach((c,i)=>{ if(i) x+=gr(gs[i-1])+gr(c)+6; gx[c]=x; });
-    ns.sort((a,b)=>b.r-a.r).forEach((n,i)=>{ const a=i*2.39996, rr=Math.sqrt(i+1)*6; n.x=gx[n.c]+Math.cos(a)*rr; n.y=Math.sin(a)*rr; });
-    const sim=d3.forceSimulation(ns).force('x',d3.forceX(n=>gx[n.c]).strength(.045)).force('y',d3.forceY(0).strength(.05))
+    // pack the colour groups themselves (as circles) so the overall shape stays round
+    const G=gs.map(c=>({c,r:Math.sqrt(d3.sum(ns.filter(n=>n.c===c),n=>n.r*n.r))*1.12+3})).sort((a,b)=>b.r-a.r);
+    d3.packSiblings(G); const gx={}, gy={}; G.forEach(g=>{ gx[g.c]=g.x; gy[g.c]=g.y; });
+    ns.sort((a,b)=>b.r-a.r).forEach((n,i)=>{ const a=i*2.39996, rr=Math.sqrt(i+1)*6; n.x=gx[n.c]+Math.cos(a)*rr; n.y=gy[n.c]+Math.sin(a)*rr; });
+    const sim=d3.forceSimulation(ns).force('x',d3.forceX(n=>gx[n.c]).strength(.1)).force('y',d3.forceY(n=>gy[n.c]).strength(.1))
       .force('c',d3.forceCollide(n=>n.r+2.2).iterations(4)).stop();
     for(let i=0;i<420;i++) sim.tick();
     return ns; };
