@@ -95,16 +95,15 @@ a.cz:hover,a.cz:focus-visible{color:var(--white);text-decoration-color:var(--gol
 .tile{padding:clamp(18px,2.4vw,30px);min-height:clamp(220px,21vw,300px);display:flex;flex-direction:column;gap:6px;position:relative}
 .tile.a,.tile.b,.tile.c{grid-column:span 2}.tile.d,.tile.e{grid-column:span 3}
 .t-gold{background:#F4B01D;color:#fff}.t-light{background:#F9CC7C}.t-warm{background:#FFFFFF}
-.tile .big{font-family:var(--display);font-weight:700;font-size:max(46px,7.97cqw);line-height:.9;color:#fff}
-.tile .big small{font-size:.705em;margin-left:.02em}
+.tile .big{font-family:var(--display);font-weight:700;font-size:clamp(52px,6vw,84px);line-height:.9;color:#fff}
+.tile .big small{font-size:.6em;margin-left:.06em}
 .tile .big{white-space:nowrap}
-.tile .lab{font-family:var(--body);font-weight:600;font-size:max(15px,1.79cqw);line-height:1.35;color:#fff;max-width:28ch}
-.tile .sub{font-family:var(--body);font-weight:600;font-size:max(15px,1.79cqw);line-height:1.35;color:#fff;margin-top:auto;max-width:30ch}
-.tile.d .sub,.tile.e .sub{margin-top:14px;max-width:34ch}
+.tile .lab{font-family:var(--body);font-weight:600;font-size:clamp(15px,1.4vw,19px);line-height:1.3;color:#fff;max-width:40ch}
+.tile .sub{font-family:var(--body);font-weight:500;font-size:clamp(14px,1.3vw,17px);line-height:1.4;color:#FFF6E0;margin-top:auto;max-width:44ch}
 .tile .dark{color:var(--ink)!important}.tile .gold{color:#F4B01D!important}.tile .sub.strong{color:var(--ink);font-weight:500}
 .tile .row{display:flex;align-items:flex-end;gap:16px;margin-top:auto}
 .tile .ico{width:72px;height:72px;flex:none}
-.tile .pre{font-family:var(--body);font-weight:600;font-size:max(15px,1.8cqw);color:var(--ink)}
+.tile .pre{font-family:var(--body);font-weight:600;font-size:clamp(14px,1.3vw,17px);color:var(--ink)}
 .tile .globe{position:absolute;right:clamp(12px,1.6vw,22px);top:clamp(12px,1.6vw,22px);width:max(96px,14cqw);height:auto}
 .tile.c .big{margin-top:auto}
 .tile.b{padding-bottom:0}
@@ -409,7 +408,7 @@ footer b{color:var(--white);font-family:var(--display);font-size:18px}
       <div class="pf" data-reveal><b class="num">12%</b>of residents identify as Asian, the state's highest share</div>
     </div>
     <div class="mosaic" aria-label="Washington County demographic and economic profile">
-      <div class="tile t-gold a" data-reveal><div class="big num">38.1<small>years</small></div><div class="lab">Population median age</div><div class="sub">2 years younger than the statewide median</div></div>
+      <div class="tile t-gold a" data-reveal><div class="big num">38.1 <small>years</small></div><div class="lab">Population median age</div><div class="sub">2 years younger than the statewide median</div></div>
       <div class="tile t-light b" data-reveal><div class="lab dark">Households using a language other than English at home</div>
         <svg class="house" viewBox="842.652 83.419 79.622 87.507" aria-hidden="true"><path transform="matrix(1,0,0,-1,842.6522,170.92627)" d="M0 0V57.342L39.811 87.507 79.622 57.342V0" fill="#ffffff"/><path transform="matrix(1,0,0,-1,900.9809,148.24048)" d="M0 0C-.106 1.48-2.991 1.463-5.176 3.458-3.912 5.014-3.161 6.58-2.706 8.419L-.748 8.436C.036 8.443 .562 8.827 .636 9.465 .707 10.078 .293 10.728-.478 10.741L-5.633 10.825C-5.615 11.565-5.586 12.245-5.982 12.699-6.411 13.191-7.256 13.103-7.627 12.701-7.975 12.323-8.071 11.654-7.904 10.811L-13.016 10.765C-13.827 10.758-14.331 10.166-14.271 9.491-14.22 8.903-13.749 8.453-13.015 8.44L-10.865 8.4C-10.502 6.508-9.655 4.987-8.447 3.443-10.988 1.173-14.22 1.443-13.493-.479-12.86-2.152-9.172-.028-6.844 1.751-4.093-.366 .171-2.395 0 0M-15.421 18.959 4.733 18.915C6.023 18.912 6.836 17.751 6.836 16.541L6.83-4.873C6.729-6.16 5.789-7.052 4.532-7.058L-6.167-7.106-13.565-16.645-13.625-7.093-17.998-7.067C-19.64-7.076-20.48-5.866-20.479-4.322L-20.458 14.118-20.462 16.546C-20.464 17.961-19.398 18.935-17.991 18.944Z" fill="#f4b01d"/><path transform="matrix(1,0,0,-1,895.8297,139.79718)" d="M0 0-3.354-.005C-2.955-1.232-2.515-2.265-1.623-3.315-.93-2.267-.276-1.298 0 0M5.151-8.443C5.323-10.839 1.058-8.809-1.692-6.693-4.02-8.471-7.709-10.595-8.342-8.922-9.068-7-5.837-7.27-3.295-5-4.504-3.456-5.351-1.935-5.714-.043L-7.863-.004C-8.598 .01-9.068 .459-9.12 1.047-9.179 1.723-8.675 2.315-7.865 2.322L-2.753 2.368C-2.919 3.21-2.824 3.879-2.475 4.257-2.105 4.66-1.26 4.748-.831 4.256-.434 3.802-.464 3.122-.481 2.382L4.673 2.297C5.445 2.285 5.858 1.635 5.787 1.022 5.713 .384 5.187 0 4.403-.007L2.445-.024C1.99-1.864 1.239-3.43-.024-4.986 2.16-6.98 5.045-6.963 5.151-8.443" fill="#ffffff"/><path transform="matrix(1,0,0,-1,874.4805,124.717899)" d="M0 0 1.233-3.099C1.509-3.79 2.129-4.064 2.734-3.877 3.31-3.7 3.699-3.01 3.415-2.305L-1.61 10.166C-1.828 10.708-2.324 10.943-2.777 10.93-3.258 10.916-3.645 10.639-3.868 10.082L-8.868-2.407C-9.131-3.062-8.686-3.702-8.26-3.855-7.601-4.093-6.977-3.844-6.711-3.193L-5.42-.03ZM10.958 11.38 11.079-4.563 8.509-4.579C7.102-4.587 6.036-5.561 6.038-6.976L6.042-9.405-14.046-9.501C-15.331-9.501-16.341-8.551-16.348-7.254L-16.45 11.4C-16.458 12.842-16.877 14.361-15.859 15.753-15.554 16.169-14.684 16.659-14.037 16.659L8.456 16.651C9.635 16.651 10.917 15.795 10.927 14.693Z" fill="#231f20"/><path transform="matrix(1,0,0,-1,873.498,122.35358)" d="M0 0-1.761 4.321-3.433-.053ZM.982-2.364-4.438-2.394-5.729-5.557C-5.994-6.208-6.619-6.458-7.278-6.22-7.704-6.066-8.148-5.427-7.886-4.772L-2.886 7.718C-2.663 8.275-2.275 8.552-1.795 8.566-1.341 8.579-.846 8.344-.627 7.802L4.397-4.669C4.681-5.374 4.293-6.065 3.717-6.242 3.111-6.428 2.491-6.154 2.216-5.463Z" fill="#ffffff"/><path transform="matrix(1,0,0,-1,873.498,122.35358)" d="M0 0-3.433-.053-1.761 4.321Z" fill="#231f20"/><path transform="matrix(1,0,0,-1,895.8297,139.79718)" d="M0 0C-.276-1.298-.93-2.267-1.623-3.315-2.515-2.265-2.955-1.232-3.354-.005Z" fill="#f4b01d"/></svg>
         <div class="pct"><div class="pre">Nearly</div><div class="big dark num">25%</div></div></div>
