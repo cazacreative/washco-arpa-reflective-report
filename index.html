@@ -64,9 +64,9 @@ p{margin:0}
 .cover .layer>i{position:absolute;inset:0;display:block;background:var(--cover) center/100% 100% no-repeat}
 .copy-start,.copy-end{position:absolute;z-index:5;color:var(--white)}
 .copy-start{left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;padding:0 var(--gut)}
-.copy-start h1{font-size:clamp(44px,7vw,96px);max-width:14ch;margin:14px auto 0}
+.copy-start h1{font-size:clamp(44px,7vw,96px);max-width:17ch;margin:14px auto 0;text-wrap:balance}
 .copy-start .eyebrow{color:var(--lav)}
-.copy-start .sub{font-family:var(--side);font-weight:500;font-size:clamp(17px,1.6vw,21px);color:#DCE2F0;max-width:36ch;margin:18px auto 0}
+.copy-start .sub{font-family:var(--side);font-weight:500;font-size:clamp(17px,1.6vw,21px);color:#DCE2F0;max-width:52ch;margin:18px auto 0;text-wrap:balance}
 .cue{margin-top:32px;font-family:var(--display);font-weight:600;letter-spacing:.12em;font-size:14px;color:var(--lav)}
 .cue::after{content:"";display:block;width:2px;height:44px;background:var(--gold);margin:12px auto 0;animation:cue 1.8s ease-in-out infinite}
 @keyframes cue{0%{transform:scaleY(.2);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(.2);transform-origin:bottom}}
@@ -211,7 +211,7 @@ p{margin:0}
 .toggle button{display:inline-flex;align-items:center;justify-content:center;height:36px;line-height:1;font-family:var(--display);font-weight:600;font-size:17px;border:2px solid var(--navy);background:transparent;color:var(--navy);border-radius:999px;padding:1px 18px 0;cursor:pointer;box-sizing:border-box}
 .toggle button[aria-pressed="true"]{background:var(--navy);color:var(--white)}
 #bubbles{margin-top:10px}
-#bubbles svg{width:min(100%,1000px,max(360px,calc((100vh - 345px) * var(--ar,1))));height:auto;display:block;margin:0 auto}
+#bubbles svg{width:min(100%,1120px,max(420px,calc((100vh - 200px) * var(--ar,1))));height:auto;display:block;margin:0 auto}
 #spent .head h2{max-width:none;font-size:clamp(40px,4.8vw,68px)}
 #bubbles text{font-family:var(--display);pointer-events:none}
 #bubbles .bn{font-weight:500}
@@ -351,7 +351,7 @@ footer b{color:var(--white);font-family:var(--display);font-size:18px}
     <svg class="mol" id="molBack" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"></svg>
     <div class="copy-start" id="copyStart">
       <div class="eyebrow">Washington County · 2021–2026</div>
-      <h1>ARPA funding through the years</h1>
+      <h1>ARPA Funding Through the Years</h1>
       <p class="sub">A look at the County's American Rescue Plan Act investments, from first award to final report</p>
       <div class="cue">SCROLL</div>
     </div>
