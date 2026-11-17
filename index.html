@@ -210,7 +210,8 @@ a.cz:hover,a.cz:focus-visible{color:var(--white);text-decoration-color:var(--gol
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{width:10px;height:10px;border-radius:50%;flex:none}
 .toggle{display:flex;gap:8px;flex-wrap:wrap}
-.toggle button{display:inline-flex;align-items:center;justify-content:center;height:36px;line-height:1;font-family:var(--display);font-weight:600;font-size:17px;border:2px solid var(--navy);background:transparent;color:var(--navy);border-radius:999px;padding:1px 18px 0;cursor:pointer;box-sizing:border-box}
+.toggle button{display:inline-flex;align-items:center;justify-content:center;height:36px;line-height:1;font-family:var(--display);font-weight:600;font-size:17px;border:2px solid var(--navy);background:transparent;color:var(--navy);border-radius:999px;padding:0 18px 2px;cursor:pointer;box-sizing:border-box}
+@supports (text-box:trim-both cap alphabetic){.toggle button{padding:0 18px;text-box:trim-both cap alphabetic}}
 .toggle button[aria-pressed="true"]{background:var(--navy);color:var(--white)}
 #bubbles{margin-top:10px}
 #bubbles svg{width:min(100%,1120px,max(420px,calc((100vh - 200px) * var(--ar,1))));height:auto;display:block;margin:0 auto}
