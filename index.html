@@ -49,7 +49,9 @@ p{margin:0}
 .bar .wrap{display:flex;justify-content:space-between;align-items:center;height:48px;gap:16px}
 .bar b{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.02em}
 .bar span{font-family:var(--side);font-size:13px;color:var(--lav)}
-.bar span.draft{color:var(--gold);font-family:var(--display)}
+.bar span.draft{color:var(--gold);font-family:var(--display);margin-right:22px}
+a.cz{color:inherit;text-decoration:underline;text-decoration-color:rgba(174,184,222,.45);text-underline-offset:3px;transition:color .2s,text-decoration-color .2s}
+a.cz:hover,a.cz:focus-visible{color:var(--white);text-decoration-color:var(--gold)}
 .draft{display:inline-block;background:none;color:var(--gold);font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.08em;padding:0;cursor:default}
 .progress{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--gold)}
 
@@ -332,7 +334,7 @@ footer b{color:var(--white);font-family:var(--display);font-size:18px}
 </style>
 </head>
 <body>
-<div class="bar" role="banner"><div class="wrap"><b>Washington County ARPA 2021–2026</b><span><span class="draft">DRAFT 6</span>&nbsp; Scroll story by Caza Creative</span></div><div class="progress" id="progress"></div></div>
+<div class="bar" role="banner"><div class="wrap"><b>Washington County ARPA 2021–2026</b><span><span class="draft">DRAFT 6</span>Scroll story by <a class="cz" href="https://www.cazacreative.com" target="_blank" rel="noopener">Caza Creative</a></span></div><div class="progress" id="progress"></div></div>
 
 <main>
 <!-- 01 Animated cover -->
@@ -503,7 +505,7 @@ footer b{color:var(--white);font-family:var(--display);font-size:18px}
 
 <footer>
   <div class="wrap">
-    <div><b>Washington County ARPA 2021–2026 Final Reflective Report</b><p style="margin-top:8px">Project team: Faiza Noor, Alisa Brossia and Edith Yu, with support from Philip Bransford and Greg Harris-Kopkau. Special thanks to Dorian Russell and Eva Hawes.</p><p style="margin-top:8px">Editorial design and graphics: Caroline Czajkowski, Caza Creative.</p></div>
+    <div><b>Washington County ARPA 2021–2026 Final Reflective Report</b><p style="margin-top:8px">Project team: Faiza Noor, Alisa Brossia and Edith Yu, with support from Philip Bransford and Greg Harris-Kopkau. Special thanks to Dorian Russell and Eva Hawes.</p><p style="margin-top:8px">Editorial design and graphics: Caroline Czajkowski, <a class="cz" href="https://www.cazacreative.com" target="_blank" rel="noopener">Caza Creative</a>.</p></div>
     <div><span class="draft">DRAFT FOR REVIEW</span><p style="margin-top:10px">A scroll story adaptation of the printed report, using figures from the report and the County's October 2026 financial summary.</p></div>
   </div>
 </footer>
