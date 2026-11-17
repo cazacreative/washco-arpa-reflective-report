@@ -573,8 +573,8 @@ document.querySelectorAll('[data-count]').forEach(el=>cu.observe(el));
       const s=sc[0]+r()*(sc[1]-sc[0]), x=(gx+.25+r()*.5)*cw, y=(gy+.25+r()*.5)*ch;
       const w=document.createElementNS(NS,'g'); w.setAttribute('transform',`translate(${x.toFixed(0)} ${y.toFixed(0)}) scale(${s.toFixed(2)})`); w.setAttribute('opacity',(op[0]+r()*(op[1]-op[0])).toFixed(2));
       const u=document.createElementNS(NS,'use'); u.setAttribute('href','#'+svg.id+'v'+(i++%cols.length));
-      u.style.setProperty('--d',(7+r()*6).toFixed(1)+'s'); u.style.setProperty('--dx',(r()*120-60).toFixed(0)+'px'); u.style.setProperty('--dy',(r()*100-50).toFixed(0)+'px'); u.style.setProperty('--r',(r()*160-80).toFixed(0)+'deg');
-      w.appendChild(u); svg.appendChild(w); } };
+      u.style.setProperty('--d',(11.5+r()*11).toFixed(1)+'s'); u.style.setProperty('--dx',(r()*80-40).toFixed(0)+'px'); u.style.setProperty('--dy',(r()*70-35).toFixed(0)+'px'); u.style.setProperty('--r',(r()*110-55).toFixed(0)+'deg');
+      w.appendChild(u); if(!(svg.id==='molBack'&&(i-1===10||i-1===16))) svg.appendChild(w); } };  // skip two small back molecules that sat on top of larger front ones
   fill(document.getElementById('molBack'),['#2E5A8E','#3866B0','#24496A'],[7,4],[.35,.7],[.55,1.15],()=>false);
   fill(document.getElementById('molFront'),['#4F72B8','#8E9FD1'],[4,2],[.22,.4],[.9,1.5],(gx,gy)=>gx===1||gx===2);
 })();
