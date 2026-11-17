@@ -741,7 +741,7 @@ document.querySelectorAll('[data-count]').forEach(el=>cu.observe(el));
     pc.innerHTML=h; pc.querySelector('.pc-x').onclick=e=>{ e.stopPropagation(); hideCard(true); }; };
   const placeCard=tr=>{ const r=tr.getBoundingClientRect(), nm=tr.cells[1].getBoundingClientRect(), w=pc.offsetWidth, h=pc.offsetHeight;
     const tr2=tr.closest('table').getBoundingClientRect(); let left=Math.max(16,Math.min(tr2.right-w-12,innerWidth-w-16)), top=r.bottom+8;
-    if(top+h>innerHeight-12) top=r.top-h-8; if(top<56) top=Math.max(56,Math.min(innerHeight-h-12,r.bottom+8));
+    top=Math.max(56,48+(innerHeight-48-h)/2);  // vertically centred in the space below the top bar
     pc.style.left=left+'px'; pc.style.top=top+'px'; };
   const showCard=tr=>{ const p=byPin.get(+tr.dataset.pin); if(!p) return; if(cur) cur.classList.remove('act'); cur=tr; tr.classList.add('act'); fillCard(p); pc.scrollTop=0; pc.classList.add('on'); placeCard(tr); };
   const hideCard=force=>{ if(pinned&&!force) return; pinned=null; pc.classList.remove('on'); if(cur){ cur.classList.remove('act'); cur=null; } };
