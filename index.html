@@ -740,7 +740,7 @@ document.querySelectorAll('[data-count]').forEach(el=>cu.observe(el));
     if(d) h+= d.o ? `<a class="pc-link" href="${REPORT23}#page=${d.pg}" target="_blank" rel="noopener">Read the project profile in the 2023 report, page ${d.pg} ↗</a>` : `<a class="pc-link" href="${REPORT}#page=${d.pg}" target="_blank" rel="noopener">Read the full project profile in the report, page ${d.pg} ↗</a>`;
     pc.innerHTML=h; pc.querySelector('.pc-x').onclick=e=>{ e.stopPropagation(); hideCard(true); }; };
   const placeCard=tr=>{ const r=tr.getBoundingClientRect(), nm=tr.cells[1].getBoundingClientRect(), w=pc.offsetWidth, h=pc.offsetHeight;
-    let left=Math.max(16,Math.min(nm.left+28,innerWidth-w-16)), top=r.bottom+8;
+    const tr2=tr.closest('table').getBoundingClientRect(); let left=Math.max(16,Math.min(tr2.right-w-12,innerWidth-w-16)), top=r.bottom+8;
     if(top+h>innerHeight-12) top=r.top-h-8; if(top<56) top=Math.max(56,Math.min(innerHeight-h-12,r.bottom+8));
     pc.style.left=left+'px'; pc.style.top=top+'px'; };
   const showCard=tr=>{ const p=byPin.get(+tr.dataset.pin); if(!p) return; if(cur) cur.classList.remove('act'); cur=tr; tr.classList.add('act'); fillCard(p); pc.scrollTop=0; pc.classList.add('on'); placeCard(tr); };
