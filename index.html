@@ -600,13 +600,13 @@ document.querySelectorAll('[data-count]').forEach(el=>cu.observe(el));
   node(g[2],X1,tTop,tH,C.navy); node(g[2],X1,fTop,fH,C.navy); node(g[2],X4,f2Top,f2H,C.navy);
   lab(g[2],X1,tTop-40,'ARPA Tranche II','$58.5M',{big:true}); lab(g[2],X1-16,fTop+fH/2-8,'Framework\u00A0I','$58.5M',{big:true,end:true,col:'#fff',vcol:'#fff',pre:'2021–2023'}); lab(g[2],X4-12,f2Top-40,'Framework\u00A0II','$74.1M',{big:true,end:true,pre:'2023–2026'});
   const fw1=[['Protecting Public Health',34.8,28.4,C.orange],['Community Stabilization and Wellness',10.1,7.8,C.green],['Community Engagement',1.0,0.4,C.green],['Stabilize and Support the Local Economy',5.6,1.9,C.blue],['Continuity of Government',7.0,4.4,C.peril]];
-  let src=fTop,iy=fTop,fy=fTop; const re=[];
+  let src=fTop,iy=fTop,fy=fTop,iBot=fTop,fBot=fTop; const re=[];
   for(const [n,ini,fin,col] of fw1){ const ih=ini*k,fh=fin*k,slot=Math.max(fh,34),yc=fy+(slot-fh)/2;
     band(g[3],X1+4,src,src+ih,X2,iy,iy+ih,C.slate,.28); node(g[3],X2,iy,ih,C.g500);
     g[3].append('text').attr('x',X2-8).attr('y',iy+ih/2+5).attr('text-anchor','end').text(`$${ini}M`);
     band(g[3],X2+4,iy,iy+fh,X3,yc,yc+fh,col,.55); node(g[3],X3,yc,fh,col); lab(g[3],X3+10,fy+slot/2-4,n,`$${fin}M`);
-    re.push([iy+fh,iy+ih]); src+=ih; iy+=ih+12; fy+=slot+12; }
-  [[X2+2,'INITIAL ALLOCATION'],[X3+2,'FINAL ALLOCATION']].forEach(([x,l])=>{ g[3].insert('line',':first-child').attr('x1',x).attr('x2',x).attr('y1',fTop-14).attr('y2',830).attr('stroke',C.g500).attr('stroke-width',1.5).attr('stroke-dasharray','2 5').attr('stroke-linecap','round'); const tc=g[3].append('text').attr('class','cap').attr('x',x).attr('y',848).attr('text-anchor','middle'); l.split(' ').forEach((w,i)=>tc.append('tspan').attr('x',x).attr('dy',i?17:0).text(w)); });
+    re.push([iy+fh,iy+ih]); iBot=iy+ih; fBot=yc+fh; src+=ih; iy+=ih+12; fy+=slot+12; }
+  [[X2+2,'INITIAL ALLOCATION',iBot],[X3+2,'FINAL ALLOCATION',fBot]].forEach(([x,l,yb])=>{ g[3].insert('line',':first-child').attr('x1',x).attr('x2',x).attr('y1',yb+4).attr('y2',828).attr('stroke',C.g500).attr('stroke-width',1.5).attr('stroke-dasharray','2 5').attr('stroke-linecap','round'); const tc=g[3].append('text').attr('class','cap').attr('x',x).attr('y',848).attr('text-anchor','middle'); l.split(' ').forEach((w,i)=>tc.append('tspan').attr('x',x).attr('dy',i?17:0).text(w)); });
   const rH=15.6*k,rTop=f2Top+tH; let ry=rTop;
   for(const [t,b] of re){ band(g[4],X2+4,t,b,XR,ry,ry+(b-t),C.lav,.65); ry+=b-t; }
   band(g[4],XR,rTop,rTop+rH,X4,rTop,rTop+rH,C.lav,.65); lab(g[4],XR-6,rTop+rH+22,'Reallocation','$15.6M',{end:true,col:C.blue});
