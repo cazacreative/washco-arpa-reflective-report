@@ -576,7 +576,7 @@ document.querySelectorAll('[data-count]').forEach(el=>cu.observe(el));
       const w=document.createElementNS(NS,'g'); w.setAttribute('transform',`translate(${x.toFixed(0)} ${y.toFixed(0)}) scale(${s.toFixed(2)})`); w.setAttribute('opacity',(op[0]+r()*(op[1]-op[0])).toFixed(2));
       const u=document.createElementNS(NS,'use'); u.setAttribute('href','#'+svg.id+'v'+(i++%cols.length));
       u.style.setProperty('--d',(14+r()*13).toFixed(1)+'s'); u.style.setProperty('--dx',(r()*64-32).toFixed(0)+'px'); u.style.setProperty('--dy',(r()*56-28).toFixed(0)+'px'); u.style.setProperty('--r',(r()*90-45).toFixed(0)+'deg');
-      w.appendChild(u); if(!(svg.id==='molBack'&&(i-1===10||i-1===16))) svg.appendChild(w); } };  // skip two small back molecules that sat on top of larger front ones
+      w.appendChild(u); if(!(svg.id==='molBack'&&(i-1===0||i-1===10||i-1===16))) svg.appendChild(w); } };  // skip three small back molecules that overlapped larger front ones
   fill(document.getElementById('molBack'),['#2E5A8E','#3866B0','#24496A'],[7,4],[.35,.7],[.55,1.15],()=>false);
   fill(document.getElementById('molFront'),['#4F72B8','#8E9FD1'],[4,2],[.22,.4],[.9,1.5],(gx,gy)=>gx===1||gx===2);
 })();
